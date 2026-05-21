@@ -1,4 +1,4 @@
-package DataStructures.Searching;
+package Algorithms.java.Searching;
 
 /**
  * A searching utility contains multiple methods. And each method is a searching algorithm which 

@@ -1,4 +1,4 @@
-package Stack.ArrayStack;
+package DataStructures.java.Stack.ArrayStack;
 
 /**
  * Represents the situation in which a collection is empty.

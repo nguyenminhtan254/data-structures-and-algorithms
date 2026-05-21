@@ -1,4 +1,4 @@
-package Stack.ArrayStack;
+package DataStructures.java.Stack.ArrayStack;
 
 /**
  * ArrayStackTester
