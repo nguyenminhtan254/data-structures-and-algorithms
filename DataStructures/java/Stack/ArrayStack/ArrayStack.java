@@ -79,7 +79,7 @@ public class ArrayStack<T> implements StackADT<T> {
     public T peek() {
         
         if (isEmpty()) {
-            throw new EmptyCollectionException("Stack");
+            throw new EmptyCollectionException("stack");
         }
 
         return stack[top-1];
