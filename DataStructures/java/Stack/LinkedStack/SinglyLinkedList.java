@@ -157,4 +157,31 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
         throw new UnsupportedOperationException("Unimplemented method 'addAfter'");
     }
 
+    /**
+     * Returns a string representation of this list.
+     *
+     * @return a string representation of this list
+     */
+    public String toString() {
+
+        StringBuilder result = new StringBuilder();
+
+        result.append("[");
+        
+        Node<T> current = head;
+        while (current != null) {
+            if (current != head) {
+                result.append(", ");
+            }
+            result.append(current.element);
+
+            current = current.next;
+        }
+        
+        result.append("]");
+
+        return result.toString();
+
+    }
+
 }

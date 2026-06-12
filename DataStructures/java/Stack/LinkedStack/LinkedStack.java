@@ -64,5 +64,15 @@ public class LinkedStack<T> implements StackADT<T> {
     public int size() {
         return stack.size();
     }
+
+    /**
+     * Returns a string representation of this stack.
+     * 
+     * @return a string representation of the stack
+     */
+    @Override
+    public String toString() {
+        return stack.toString();
+    }
     
 }
