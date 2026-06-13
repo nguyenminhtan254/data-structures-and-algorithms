@@ -17,7 +17,6 @@ public class ArrayStack<T> implements StackADT<T> {
     /**
      * Creates an empty stack using the default capacity.
      */
-    @SuppressWarnings("unchecked")
     public ArrayStack() {
         top = 0;
         stack = (T[]) (new Object[DEFAULT_CAPACITY]);
@@ -27,7 +26,6 @@ public class ArrayStack<T> implements StackADT<T> {
      * Creates an empty stack using the specified capacity.
      * @param initalCapacity the inital size of the array
      */
-    @SuppressWarnings("unchecked")
     public ArrayStack(int initalCapacity) {
         top = 0;
         stack = (T[]) (new Object[initalCapacity]);
