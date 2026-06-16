@@ -8,9 +8,9 @@
 ## QueueADT
 |Methods|Time Complexity|
 |-------|---------------|
-|push(T element) : void|O(1)|
-|pop() : T|O(1)|
-|peek() : T|O(1)|
+|enqueue(T element) : void|O(1)|
+|dequeue() : T|O(1)|
+|first() : T|O(1)|
 |isEmpty() : boolean|O(1)|
 |size() : int|O(1)|
 |toString() : String|O(n)|
