@@ -38,3 +38,14 @@
     - Best case: Ω(n)
     - Average case: Θ(n<sup>2</sup>)
     - Worst case: O(n<sup>2</sup>)
+
+## Quick Sort
+- Quick sort orders values by partitioning the list around one element, then sorting each partition
+- **Ascending algorithm**:
+    - choose one element in the list to be partition element
+    - organize the elements so that all elements less than the partition elements are to the left and all greater to the right
+    - apply the quick sort algorithm (recursively) to both partitions
+- Time Complexity:
+    - Best case: Ω(n log(n))
+    - Average case: Θ(n log(n))
+    - Worst case: O(n<sup>2</sup>)
