@@ -2,8 +2,7 @@ package Algorithms.java.Sorting;
 
 /**
  * A sorting utility contains multiple methods. And each method is a sorting
- * algorithm which
- * sorts a list of values in ascending order.
+ * algorithm which sorts a list of values in ascending order.
  * 
  * @author Minh Tan Nguyen
  */

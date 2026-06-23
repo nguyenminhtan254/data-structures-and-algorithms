@@ -1,5 +1,11 @@
 package Algorithms.java.Sorting;
 
+/**
+ * The quick sort algorithm sorts a list by partitioning the list 
+ * and then recursively sorting the two partitions.
+ * 
+ * @author Minh Tan Nguyen
+ */
 public class QuickSort {
 
     /**
