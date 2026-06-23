@@ -40,7 +40,7 @@
     - Worst case: O(n<sup>2</sup>)
 
 ## Quick Sort
-- Quick sort orders values by partitioning the list around one element, then sorting each partition
+- Quick sort orders values by partitioning the list around one element, then sorting each partition.
 - **Ascending algorithm**:
     - choose one element in the list to be partition element
     - organize the elements so that all elements less than the partition elements are to the left and all greater to the right
@@ -49,3 +49,15 @@
     - Best case: Ω(n log(n))
     - Average case: Θ(n log(n))
     - Worst case: O(n<sup>2</sup>)
+
+## Merge Sort
+- Merge sort orders values by recursively dividing the list in half until each sub-list has one element, then recombining.
+- **Ascending algorithm**:
+    - divide the list into two roughly equal parts
+    - recursively divide each part in half, continuing until a part contains only one element
+    - merge the two parts into one sorted list
+    - continue to merge parts as the recursion unfolds
+- Time Complexity:
+    - Best case: Ω(n log(n))
+    - Average case: Θ(n log(n))
+    - Worst case: O(n log(n))
