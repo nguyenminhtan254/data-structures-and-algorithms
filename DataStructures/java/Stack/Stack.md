@@ -6,11 +6,11 @@
 - Think of a stack of books, where you add and remove from the top, but can't reach into the middle.
 
 ## StackADT
-|Methods|Time Complexity|
-|-------|---------------|
-|push(T element) : void|O(1)|
-|pop() : T|O(1)|
-|peek() : T|O(1)|
-|isEmpty() : boolean|O(1)|
-|size() : int|O(1)|
-|toString() : String|O(n)|
+| Methods                | Time Complexity |
+| ---------------------- | --------------- |
+| push(T element) : void | O(1)            |
+| pop() : T              | O(1)            |
+| peek() : T             | O(1)            |
+| isEmpty() : boolean    | O(1)            |
+| size() : int           | O(1)            |
+| toString() : String    | O(n)            |
