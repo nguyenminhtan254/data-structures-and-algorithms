@@ -39,3 +39,8 @@
 - That order is not based on element characteristics.
 
 ## UnorderedListADT
+| Methods                              | Array Implementation | Linked List Implementation |
+| ------------------------------------ | -------------------- | -------------------------- |
+| addToFront(T element) : void         |                      |                            |
+| addToRear(T element) : void          |                      |                            |
+| addAfter(T element, T target) : void |                      |                            |
