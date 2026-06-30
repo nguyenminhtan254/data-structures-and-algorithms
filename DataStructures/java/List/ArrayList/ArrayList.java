@@ -286,6 +286,7 @@ public class ArrayList<T> implements UnorderedListADT<T> {
          * thrown.
          *
          * @return the next element in the iteration
+         * @throws NoSuchElementException if the iterator is empty
          */
         @Override
         public T next() {
