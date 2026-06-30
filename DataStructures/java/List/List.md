@@ -13,14 +13,14 @@
 | ---------------------------- | -------------------- | -------------------------- |
 | removeFirst() : T            | O(n)                 |                            |
 | removeLast() : T             | O(1)                 |                            |
-| remove(T element) : T        |                      |                            |
-| first() : T                  |                      |                            |
-| last() : T                   |                      |                            |
-| contains(T target) : boolean |                      |                            |
-| isEmpty() : boolean          |                      |                            |
-| size() : int                 |                      |                            |
-| iterator() : Iterator        |                      |                            |
-| toString() : String          |                      |                            |
+| remove(T element) : T        | O(n)                 |                            |
+| first() : T                  | O(1)                 |                            |
+| last() : T                   | O(1)                 |                            |
+| contains(T target) : boolean | O(n)                 |                            |
+| isEmpty() : boolean          | O(1)                 |                            |
+| size() : int                 | O(1)                 |                            |
+| iterator() : Iterator        | O(1)                 |                            |
+| toString() : String          | O(n)                 |                            |
 
 # Ordered Lists
 
@@ -41,6 +41,6 @@
 ## UnorderedListADT
 | Methods                              | Array Implementation | Linked List Implementation |
 | ------------------------------------ | -------------------- | -------------------------- |
-| addToFront(T element) : void         |                      |                            |
-| addToRear(T element) : void          |                      |                            |
-| addAfter(T element, T target) : void |                      |                            |
+| addToFront(T element) : void         | O(n)                 |                            |
+| addToRear(T element) : void          | O(1)                 |                            |
+| addAfter(T element, T target) : void | O(n)                 |                            |

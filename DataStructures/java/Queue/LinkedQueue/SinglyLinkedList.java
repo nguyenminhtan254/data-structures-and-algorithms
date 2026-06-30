@@ -53,6 +53,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
      * Removes and returns the first element from this list.
      *
      * @return the first element from this list
+     * @throws EmptyCollectionException if the list is empty
      */
     @Override
     public T removeFirst() {
@@ -83,6 +84,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
      * Returns a reference to the last element in this list.
      *
      * @return a reference to the last element in this list
+     * @throws EmptyCollectionException if the list is empty
      */
     @Override
     public T first() {
