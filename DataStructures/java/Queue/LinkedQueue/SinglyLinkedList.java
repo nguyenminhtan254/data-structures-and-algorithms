@@ -42,7 +42,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
     }
 
     /**
-     * Creats an empty singly linked list.
+     * Creates an empty singly linked list.
      */
     public SinglyLinkedList() {
         head = tail = null;
@@ -65,6 +65,10 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
         T result = head.element;
         head = head.next;
         count--;
+
+        if (isEmpty()) {
+            tail = null;
+        }
 
         return result;
 

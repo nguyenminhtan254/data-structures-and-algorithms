@@ -1,16 +1,16 @@
-package DataStructures.java.Stack.LinkedStack;
+package DataStructures.java.List.SinglyLinkedList;
 
 import java.util.Iterator;
 
 /**
  * SinglyLinkedList represents a linked implementation of a list.
- * 
+ *
  * @author Minh Tan Nguyen
  */
 public class SinglyLinkedList<T> implements UnorderedListADT<T> {
 
-    private Node<T> head;
-    private int count;
+    protected int count;
+    protected Node<T> head, tail;
 
     /**
      * Represents a node in a linked list.
@@ -32,6 +32,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
 
         /**
          * Creates a node storing the specified element.
+         * 
          * @param element element to be stored
          */
         public Node(T element) {
@@ -42,11 +43,11 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
     }
 
     /**
-     * Creates an empty singly linked list.
+     * Creates an empty list.
      */
     public SinglyLinkedList() {
-        head = null;
         count = 0;
+        head = tail = null;
     }
 
     /**
@@ -59,7 +60,7 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
     public T removeFirst() {
 
         if (isEmpty()) {
-            throw new EmptyCollectionException("stack");
+            throw new EmptyCollectionException("list");
         }
 
         T result = head.element;
@@ -70,41 +71,74 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
 
     }
 
+    /**
+     * Removes and returns the last element from this list.
+     *
+     * @return the last element from this list
+     */
     @Override
     public T removeLast() {
-        throw new UnsupportedOperationException("Unimplemented method 'removeLast'");
+        
+        if (isEmpty()) {
+            throw new EmptyCollectionException("list");
+        }
+
+        T result = tail.element;
+
+        Node<T> current = head;
+        Node<T> previous = null;
+
+        while (current.next != null) {
+            previous = head;
+            current = current.next;
+        }
+
+        tail = previous;
+
+        return result;
+
     }
 
     @Override
     public T remove(T element) {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
-    
-    /**
-     * Returns a reference to the first element in this list.
-     *
-     * @return a reference to the first element in this list
-     * @throws EmptyCollectionException if the list is empty
-     */
+
     @Override
     public T first() {
-
-        if (isEmpty()) {
-            throw new EmptyCollectionException("stack");
-        }
-
-        return head.element;
-
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'first'");
     }
 
     @Override
     public T last() {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'last'");
     }
 
     @Override
     public boolean contains(T target) {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'contains'");
+    }
+
+    @Override
+    public void addToFront(T element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addToFront'");
+    }
+
+    @Override
+    public void addToRear(T element) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addToRear'");
+    }
+
+    @Override
+    public void addAfter(T element, T target) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addAfter'");
     }
 
     /**
@@ -129,61 +163,8 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
 
     @Override
     public Iterator<T> iterator() {
+        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'iterator'");
-    }
-
-    /**
-     * Adds the specified element to the rear of this list.
-     *
-     * @param element the element to be added to the rear of this list
-     */
-    @Override
-    public void addToFront(T element) {
-
-        Node<T> newNode = new Node<>(element);
-
-        newNode.next = head;
-        head = newNode;
-
-        count++;
-
-    }
-
-    @Override
-    public void addToRear(T element) {
-        throw new UnsupportedOperationException("Unimplemented method 'addToRear'");
-    }
-
-    @Override
-    public void addAfter(T element, T target) {
-        throw new UnsupportedOperationException("Unimplemented method 'addAfter'");
-    }
-
-    /**
-     * Returns a string representation of this list.
-     *
-     * @return a string representation of this list
-     */
-    public String toString() {
-
-        StringBuilder result = new StringBuilder();
-
-        result.append("[");
-        
-        Node<T> current = head;
-        while (current != null) {
-            if (current != head) {
-                result.append(", ");
-            }
-            result.append(current.element);
-
-            current = current.next;
-        }
-        
-        result.append("]");
-
-        return result.toString();
-
     }
 
 }
