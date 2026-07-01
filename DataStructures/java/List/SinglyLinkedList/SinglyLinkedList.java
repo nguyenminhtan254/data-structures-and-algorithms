@@ -113,10 +113,51 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
 
     }
 
+    /**
+     * Removes and returns the specified element from this list.
+     *
+     * @param element the element to be removed from the list
+     * @throws EmptyCollectionException if list is empty
+     * @throws ElementNotFoundException if the element is not in the list
+     */
     @Override
     public T remove(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+
+        if (isEmpty()) {
+            throw new EmptyCollectionException("list");
+        }
+
+        T result = null;
+
+        if (head.element.equals(element)) {
+            result = removeFirst();
+        } else if (tail.element.equals(element)) {
+            result = removeLast();
+        } else {
+
+            Node<T> current = head;
+            Node<T> previous = null;
+
+            while (current != null) {
+                if (current.element.equals(element)) {
+                    break;
+                }
+                previous = current;
+                current = current.next;
+            }
+
+            if (current == null) {
+                throw new ElementNotFoundException("list");
+            }
+
+            result = current.element;
+            previous.next = current.next;
+            count--;
+
+        }
+
+        return result;
+
     }
 
     /**
@@ -153,28 +194,102 @@ public class SinglyLinkedList<T> implements UnorderedListADT<T> {
 
     }
 
+    /**
+     * Returns true if this list contains the specified target element.
+     *
+     * @param target the target that is being sought in the list
+     * @return true if the list contains this element
+     */
     @Override
     public boolean contains(T target) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'contains'");
+
+        boolean found = false;
+
+        if (target != null) {
+            Node<T> current = head;
+
+            while (current != null) {
+                if (current.element.equals(target)) {
+                    found = true;
+                    break;
+                }
+                current = current.next;
+            }
+        }
+
+        return found;
+
     }
 
+    /**
+     * Adds the specified element to the front of this list.
+     *
+     * @param element the element to be added to the front of this list
+     */
     @Override
     public void addToFront(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addToFront'");
+
+        Node<T> newNode = new Node<>(element);
+        newNode.next = head;
+        head = newNode;
+
+        if (isEmpty()) {
+            tail = newNode;
+        }
+
+        count++;
+
     }
 
+    /**
+     * Adds the specified element to the rear of this list.
+     *
+     * @param element the element to be added to the rear of this list
+     */
     @Override
     public void addToRear(T element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addToRear'");
+
+        Node<T> newNode = new Node<>(element);
+
+        if (isEmpty()) {
+            head = newNode;
+        } else {
+            tail.next = newNode;
+        }
+
+        tail = newNode;
+        count++;
+
     }
 
+    /**
+     * Adds the specified element after the specified target.
+     *
+     * @param element the element to be added after the target
+     * @param target  the target is the item that the element will be added after
+     * @throws ElementNotFoundException if the element is not in the list
+     */
     @Override
     public void addAfter(T element, T target) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addAfter'");
+
+        Node<T> current = head;
+
+        while (current != null) {
+            if (current.element.equals(target)) {
+                break;
+            }
+            current = current.next;
+        }
+
+        if (current == null) {
+            throw new ElementNotFoundException("list");
+        }
+
+        Node<T> newNode = new Node<>(element);
+        newNode.next = current.next;
+        current.next = newNode;
+        count++;
+
     }
 
     /**
