@@ -20,6 +20,7 @@ public class ArrayList<T> implements UnorderedListADT<T> {
     /**
      * Creates an empty list using the default capacity.
      */
+    @SuppressWarnings("unchecked")
     public ArrayList() {
         count = 0;
         list = (T[]) (new Object[DEFAULT_CAPACITY]);
@@ -30,6 +31,7 @@ public class ArrayList<T> implements UnorderedListADT<T> {
      *
      * @param initialCapacity the size of the array list
      */
+    @SuppressWarnings("unchecked")
     public ArrayList(int initialCapacity) {
         count = 0;
         list = (T[]) (new Object[initialCapacity]);

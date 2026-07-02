@@ -16,6 +16,7 @@ public class CircularArrayQueue<T> implements QueueADT<T> {
     /**
      * Creates an empty queue using the default capacity.
      */
+    @SuppressWarnings("unchecked")
     public CircularArrayQueue() {
         front = rear = count = 0;
         queue = (T[]) (new Object[DEFAULT_CAPACITY]);
@@ -26,6 +27,7 @@ public class CircularArrayQueue<T> implements QueueADT<T> {
      * 
      * @param initialCapacity the initial size of the circular array queue
      */
+    @SuppressWarnings("unchecked")
     public CircularArrayQueue(int initialCapacity) {
         front = rear = count = 0;
         queue = (T[]) (new Object[initialCapacity]);
@@ -123,6 +125,7 @@ public class CircularArrayQueue<T> implements QueueADT<T> {
      */
     private void expandCapacity() {
 
+        @SuppressWarnings("unchecked")
         T[] newQueue = (T[]) new Object[queue.length * 2];
 
         for (int scan = 0; scan < count; scan++) {

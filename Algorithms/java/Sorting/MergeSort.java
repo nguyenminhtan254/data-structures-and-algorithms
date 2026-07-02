@@ -48,6 +48,7 @@ public class MergeSort {
      * @param mid   the ending index of the first subarray
      * @param last  the ending index of the second subarray
      */
+    @SuppressWarnings("unchecked")
     private static <T extends Comparable<T>> void merge(T[] data, int first, int mid, int last) {
 
         T[] temp = (T[]) (new Comparable[data.length]);
