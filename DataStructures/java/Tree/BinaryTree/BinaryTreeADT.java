@@ -42,7 +42,7 @@ public interface BinaryTreeADT<T> {
 
     /**
      * Returns a reference to the specified element if it is found in
-     * * this binary tree. Throws an exception if the specified element
+     * this binary tree. Throws an exception if the specified element
      * is not found.
      *
      * @param targetElement the element being sought in the tree
@@ -93,5 +93,5 @@ public interface BinaryTreeADT<T> {
      * @return an iterator over the elements of this binary tree
      */
     public Iterator<T> iteratorLevelOrder();
-    
+
 }
