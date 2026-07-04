@@ -43,11 +43,11 @@
 | contains(T targetElement) : boolean |                      | O(n)                       |
 | find(T targetElement) : T           |                      | O(n)                       |
 | toString() : String                 |                      | O(n)                       |
-| iterator() : Iterator<T>            |                      | O(n)                       |
-| iteratorInOrder() : Iterator<T>     |                      | O(n)                       |
-| iteratorPreOrder() : Iterator<T>    |                      | O(n)                       |
-| iteratorPostOrder() : Iterator<T>   |                      | O(n)                       |
-| iteratorLevelOrder() : Iterator<T>  |                      | O(n)                       |
+| iterator() : Iterator\<T>           |                      | O(n)                       |
+| iteratorInOrder() : Iterator\<T>    |                      | O(n)                       |
+| iteratorPreOrder() : Iterator\<T>   |                      | O(n)                       |
+| iteratorPostOrder() : Iterator\<T>  |                      | O(n)                       |
+| iteratorLevelOrder() : Iterator\<T> |                      | O(n)                       |
 
 # Binary Search Tree
 
