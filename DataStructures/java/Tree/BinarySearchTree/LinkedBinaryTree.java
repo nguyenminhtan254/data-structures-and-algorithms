@@ -1,4 +1,4 @@
-package DataStructures.java.Tree.BinaryTree;
+package DataStructures.java.Tree.BinarySearchTree;
 
 import java.util.Iterator;
 import java.util.LinkedList;

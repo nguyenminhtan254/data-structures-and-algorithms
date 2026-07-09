@@ -51,3 +51,30 @@
 
 # Binary Search Tree
 
+## Definition
+- A search tree is a tree whose elements are organized to facilitate finding a particular element when needed.
+- A *binary search tree* is a binary tree that, for each node
+  - the left subtree of n contains elements less than element stored in n
+  - the right subtree of n contains elements greater than or equal to the element stored in n
+
+## Removing a Node from a BST
+- Removing a node from a BST falls into three situations:
+  - the node to be removed is a leaf
+  - the node to be removed has one child
+  - the node to be removed has two children
+- If the node is a leaf, it can simply be removed.
+- If the node has one child, the deleted node is replaced by the child.
+- If the node has two children, an appropriate node is found to replace it. One of the children of the removed node become the replacement node. There are two options for picking the replacement:
+  - inorder successor – the minimum value in its right subtree (leftmost node in the right subtree)
+  - inorder predecessor – the maximum value in its left subtree (rightmost node in the left subtree)
+
+## BinarySearchTreeADT
+| Methods                                     | Array Implementation | Linked List Implementation |
+| ------------------------------------------- | -------------------- | -------------------------- |
+| addElement(T element) : void                |                      | O()                        |
+| removeElement(T targetElement) : T          |                      | O()                        |
+| removeAllOccurances(T targetElement) : void |                      | O()                        |
+| removeMin() : T                             |                      | O()                        |
+| removeMax() : T                             |                      | O()                        |
+| findMin() : T                               |                      | O()                        |
+| findMax() : T                               |                      | O()                        |
