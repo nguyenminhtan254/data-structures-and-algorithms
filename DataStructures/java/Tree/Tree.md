@@ -71,10 +71,10 @@
 ## BinarySearchTreeADT
 | Methods                                     | Array Implementation | Linked List Implementation |
 | ------------------------------------------- | -------------------- | -------------------------- |
-| addElement(T element) : void                |                      | O()                        |
-| removeElement(T targetElement) : T          |                      | O()                        |
-| removeAllOccurances(T targetElement) : void |                      | O()                        |
-| removeMin() : T                             |                      | O()                        |
-| removeMax() : T                             |                      | O()                        |
-| findMin() : T                               |                      | O()                        |
-| findMax() : T                               |                      | O()                        |
+| addElement(T element) : void                |                      | O(log n)                        |
+| removeElement(T targetElement) : T          |                      | O(log n)                        |
+| removeAllOccurances(T targetElement) : void |                      | O(k log n)                        |
+| removeMin() : T                             |                      | O(log n)                        |
+| removeMax() : T                             |                      | O(log n)                        |
+| findMin() : T                               |                      | O(log n)                        |
+| findMax() : T                               |                      | O(log n)                        |
