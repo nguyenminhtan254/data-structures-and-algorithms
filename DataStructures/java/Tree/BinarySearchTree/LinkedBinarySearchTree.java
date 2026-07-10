@@ -8,9 +8,6 @@ package DataStructures.java.Tree.BinarySearchTree;
 public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinaryTree<T>
         implements BinarySearchTreeADT<T> {
 
-    protected BinaryTreeNode<T> root;
-    protected int count;
-
     /**
      * Creates an empty binary search tree.
      */
@@ -26,6 +23,81 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinar
      */
     public LinkedBinarySearchTree(T element) {
         super(element);
+    }
+
+    /**
+     * Returns iteratively a reference to the specified element if it is found in
+     * this binary search tree. Throws an exception if the specified element is not
+     * found.
+     * 
+     * @param targetElement the element being sought in this tree
+     * @return a reference to the specified target
+     * @throws ElementNotFoundException if the element is not in the tree
+     */
+    public T findIterative(T targetElement) {
+
+        BinaryTreeNode<T> current = root;
+
+        while (current != null) {
+            if (targetElement.compareTo(current.element) < 0) {
+                current = current.left;
+            } else if (targetElement.compareTo(current.element) > 0) {
+                current = current.right;
+            } else {
+                break;
+            }
+        }
+
+        if (current == null) {
+            throw new ElementNotFoundException("LinkedBinarySearchTree");
+        }
+
+        return current.element;
+
+    }
+
+    /**
+     * Returns recursively a reference to the specified element if it is found in
+     * this binary tree. Throws an exception if the specified element is not found.
+     * 
+     * @param targetElement the element being sought in this tree
+     * @return a reference to the specified target
+     * @throws ElementNotFoundException if the element is not in the tree
+     */
+    @Override
+    public T find(T targetElement) {
+
+        T result = find(targetElement, root);
+
+        if (result == null) {
+            throw new ElementNotFoundException("LinkedBinarySearchTree");
+        }
+
+        return result;
+    }
+
+    /**
+     * Recursive helper of find.
+     * 
+     * @param targetElement the element being sought in this tree
+     * @return a reference to the specified target
+     */
+    private T find(T targetElement, BinaryTreeNode<T> current) {
+
+        T result = null;
+
+        if (current != null) {
+            if (targetElement.compareTo(current.element) < 0) {
+                result = find(targetElement, current.left);
+            } else if (targetElement.compareTo(current.element) > 0) {
+                result = find(targetElement, current.right);
+            } else {
+                result = current.element;
+            }
+        }
+
+        return result;
+
     }
 
     /**
@@ -63,6 +135,8 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinar
             }
 
         }
+
+        count++;
 
     }
 
@@ -115,17 +189,93 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinar
      *
      * @param targetElement the element to be removed from the tree
      * @return the element to be removed from the tree
+     * @throws ElementNotFoundException if the target element is not found
      */
     @Override
     public T removeElement(T targetElement) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeElement'");
+
+        if (!contains(targetElement)) {
+            throw new ElementNotFoundException("LinkedBinarySearchTree");
+        }
+
+        root = removeElement(targetElement, root);
+        count--;
+        return targetElement;
+
     }
 
+    /**
+     * Recursive helper of removeElement.
+     * 
+     * @param targetElement the element to be removed from the tree
+     * @param current       the current reference
+     * @return the element to be removed from the tree
+     */
+    private BinaryTreeNode<T> removeElement(T targetElement, BinaryTreeNode<T> current) {
+
+        if (current == null) {
+            // Base case: Not found
+            return null;
+        } else {
+            // Recursive case: Find and delete node
+            if (targetElement.compareTo(current.element) < 0) {
+                current.left = removeElement(targetElement, current.left);
+            } else if (targetElement.compareTo(current.element) > 0) {
+                current.right = removeElement(targetElement, current.right);
+            } else {
+
+                // Delete node
+                if (current.left == null && current.right == null) {
+                    current = null;
+                } else if (current.left == null) {
+                    current = current.right;
+                } else if (current.right == null) {
+                    current = current.left;
+                } else {
+
+                    T successorElement = replacement(current.right);
+                    current.element = successorElement;
+                    current.right = removeElement(successorElement, current.right);
+
+                }
+
+            }
+        }
+
+        return current;
+
+    }
+
+    /**
+     * Get inorder successor.
+     * 
+     * @param current the current reference
+     * @return the smallest element in this subtree
+     */
+    private T replacement(BinaryTreeNode<T> current) {
+        while (current.left != null) {
+            current = current.left;
+        }
+
+        return current.element;
+    }
+
+    /**
+     * Removes all occurences of the specified element from this tree.
+     *
+     * @param targetElement the element to be removed from the tree
+     */
     @Override
     public void removeAllOccurrences(T targetElement) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeAllOccurrences'");
+
+        try {
+            while (true) {
+                removeElement(targetElement);
+            }
+        } catch (ElementNotFoundException e) {
+            
+        }
+
     }
 
     /**
@@ -173,7 +323,7 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinar
      */
     @Override
     public T removeMax() {
-        
+
         if (isEmpty()) {
             throw new EmptyCollectionException("LinkedBinarySearchTree");
         }
@@ -210,7 +360,7 @@ public class LinkedBinarySearchTree<T extends Comparable<T>> extends LinkedBinar
      */
     @Override
     public T findMin() {
-        
+
         if (isEmpty()) {
             throw new EmptyCollectionException("LinkedBinarySearchTree");
         }
